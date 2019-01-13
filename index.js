@@ -6,6 +6,7 @@ const {
   promisify
 } = require('util')
 const TogglClient = require('toggl-api')
+const rofiExecutable = 'rofi'
 
 const objSet = val => key => obj => {
   obj[key] = val
@@ -43,7 +44,7 @@ const toggl =
 //    (new TogglClient({apiToken: process.env.TOGGL_TOKEN}))
 
 const rofi = ({ title, data = '', args = [] }) => new Promise((resolve, reject) => {
-  const rofi = spawn('rofi', ['-dmenu', '-p', title, ...args])
+  const rofi = spawn(rofiExecutable, ['-dmenu', '-p', title, ...args])
   rofi.stdin.write(data)
   rofi.stdin.end()
   let result = '';
