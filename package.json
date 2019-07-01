@@ -1,5 +1,5 @@
 {
-  "name": "toggl-rofi",
+  "name": "rofi-toggl",
   "version": "1.0.0",
   "description": "A script that interacts between rofi and the toggl-api",
   "main": "index.js",
