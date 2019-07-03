@@ -75,7 +75,7 @@ const init = async () => {
   if (!current) return newTimer()
 
   const currentMins = Math.floor((new Date - new Date(current.at)) / 60e3)
-  const sanetizedDesc = current.description.replace(/\n|\0/g, '  ')
+  const sanetizedDesc = (current.description || '').replace(/\n|\0/g, '  ')
 
   const { action: next } = await rofiAlts(
     { title: 'Toggl'
