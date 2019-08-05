@@ -15,14 +15,6 @@ let
   };
 in initial // {
   package = initial.package.overrideAttrs (_: { postInstall = ''
-    mkdir -p $out/bin
-    cat > $out/bin/rofi-toggl <<EOL
-    #! ${bash}/bin/bash
-    export NODE_PATH=$out/lib/node_modules/rofi-toggl/node_modules
-    ${nodejs}/bin/node $out/lib/node_modules/rofi-toggl/index.js
-    EOL
-    chmod +x $out/bin/rofi-toggl
-
     substituteInPlace $out/lib/node_modules/rofi-toggl/index.js \
       --replace "rofiExecutable = 'rofi'" "rofiExecutable = '${rofi}/bin/rofi'"
   ''; });

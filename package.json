@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A script that interacts between rofi and the toggl-api",
   "main": "index.js",
+  "bin": {
+    "rofi-toggl": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

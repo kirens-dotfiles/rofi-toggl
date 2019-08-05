@@ -398,6 +398,11 @@ let
         if [ -d "$out/lib/node_modules/.bin" ]
         then
             ln -s $out/lib/node_modules/.bin $out/bin
+
+            for file in $out/bin/*
+            do
+              patchShebangs "$file"
+            done
         fi
 
         # Create symlinks to the deployed manual page folders, if applicable
